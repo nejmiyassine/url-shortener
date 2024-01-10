@@ -33,33 +33,30 @@
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <!-- Profile dropdown -->
                 <div class="relative ml-3">
-                    <div>
-                        <button type="button"
-                            class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                            id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                            <span class="absolute -inset-1.5"></span>
-                            <span class="sr-only">Open user menu</span>
-                            <img class="h-8 w-8 rounded-full"
-                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                alt="">
-                        </button>
-                    </div>
 
-                    <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                        role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+
+                    <div class="flex text-white" role="menu" aria-labelledby="user-menu-button">
                         @guest
-                            <a href="{{ route('user.login') }}" class="block px-4 py-2 text-sm text-gray-700"
-                                role="menuitem" tabindex="-1" id="user-menu-item-0">Login</a>
-                            <a href="{{ route('user.register') }}" class="block px-4 py-2 text-sm text-gray-700"
-                                role="menuitem" tabindex="-1" id="user-menu-item-1">Register</a>
+                            <a href="{{ route('user.login') }}" class="px-4 py-2 text-sm text-white" role="menuitem"
+                                id="user-menu-item-0">Login</a>
+                            <a href="{{ route('user.register') }}" class="px-4 py-2 text-sm text-white" role="menuitem"
+                                id="user-menu-item-1">Register</a>
                         @endguest
 
                         @auth
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                            <a href="#" class="font-semibold px-4 py-2 text-sm text-white" role="menuitem"
                                 id="user-menu-item-2">{{ Auth::user()->name }}</a>
-                            <a class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                                id="user-menu-item-2" onclick="document.getElementById('logoutForm').submit();">
+                            <a class="px-4 py-2 text-sm flex items-center gap-1 cursor-pointer hover:underline text-blue-400"
+                                role="menuitem" id="user-menu-item-2"
+                                onclick="document.getElementById('logoutForm').submit();">
                                 Sign out
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-log-out">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                    <polyline points="16 17 21 12 16 7" />
+                                    <line x1="21" x2="9" y1="12" y2="12" />
+                                </svg>
                             </a>
                             <form id="logoutForm" action="{{ route('user.logout') }}" method="GET">@csrf</form>
                         @endauth

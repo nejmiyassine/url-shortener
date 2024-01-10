@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('user/urls/{user_id}', [UrlController::class, 'index']);
 Route::post('url/add', [UrlController::class, 'store']);
 Route::delete('url/delete/{shorten_url}', [UrlController::class, 'destroy']);
+Route::put('url/update/{shorten_url}', [UrlController::class, 'update']);

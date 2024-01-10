@@ -70,6 +70,10 @@
                         class="p-3 rounded-md bg-blue-500 text-white font-semibold hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
                         {{ __('Register') }}
                     </button>
+                    <p>
+                        Already have an account?
+                        <a href="{{ route('user.login') }}" class="underline text-blue-500">Sign up</a>
+                    </p>
                 </div>
             </form>
         </div>

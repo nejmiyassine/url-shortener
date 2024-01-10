@@ -48,7 +48,12 @@
                         class="p-3 rounded-md text-white font-semibold bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
                         {{ __('Login') }}
                     </button>
+                    <p>
+                        I don't have an account?
+                        <a href="{{ route('user.register') }}" class="underline text-blue-500">Sign in</a>
+                    </p>
                 </div>
+
             </form>
         </div>
     </div>
