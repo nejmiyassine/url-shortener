@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2>Hello World!</h2>
+    <home-component :user_id="{{ auth()->user()->id }}"></home-component>
 @endsection

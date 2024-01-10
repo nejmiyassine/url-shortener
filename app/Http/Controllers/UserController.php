@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -27,9 +28,18 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required|max:100',
-            'email' => 'required',
-            'password' => 'required|min:8',
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('users'),
+            ],
+            'password' => 'required|min:8|confirmed',
         ]);
+
+        $existingUser = User::where('email', $request->email)->first();
+        if ($existingUser) {
+            return back()->withErrors(['email' => 'The email address already exists.'])->withInput();
+        }
 
         $user = User::create([
             'name' => $request->name,
