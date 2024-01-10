@@ -14,7 +14,7 @@
                     @endif
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('user.authentication') }}">
+                        <form method="POST" action="{{ route('user.login') }}">
                             @csrf
 
                             <div class="pb-3">

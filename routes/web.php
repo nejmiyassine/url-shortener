@@ -25,4 +25,4 @@ Route::middleware('auth')->group(function () {
 Route::get('user/register', [UserController::class, 'registerForm'])->name('user.register');
 Route::post('user/register', [UserController::class, 'store'])->name('user.store');
 Route::get('user/login', [UserController::class, 'loginForm'])->name('user.login');
-Route::post('user/login', [UserController::class, 'authentication'])->name('user.authentication');
+Route::post('user/login', [UserController::class, 'authentication'])->name('user.login');
