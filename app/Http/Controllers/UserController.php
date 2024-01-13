@@ -16,7 +16,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function registerForm()
+    public function showRegistrationForm()
     {
         if (Auth::check()) {
             return redirect()->route('home');
@@ -52,7 +52,7 @@ class UserController extends Controller
         return redirect()->route('home');
     }
 
-    public function loginForm()
+    public function showLoginForm()
     {
         if (Auth::check()) {
             return redirect()->route('home');
@@ -61,7 +61,7 @@ class UserController extends Controller
     }
 
 
-    public function authentication(Request $request)
+    public function login(Request $request)
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],

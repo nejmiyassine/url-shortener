@@ -50,7 +50,7 @@
                     </button>
                     <p>
                         I don't have an account?
-                        <a href="{{ route('user.register') }}" class="underline text-blue-500">Sign in</a>
+                        <a href="{{ route('user.register') }}" class="underline text-blue-500">Sign Up</a>
                     </p>
                 </div>
 

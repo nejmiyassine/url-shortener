@@ -6,7 +6,7 @@
 
             <div class="text-2xl font-bold text-gray-900 mb-4">{{ __('Register') }}</div>
 
-            <form method="POST" action="{{ route('user.store') }}" class="space-y-4">
+            <form method="POST" action="{{ route('user.register') }}" class="space-y-4">
                 @csrf
 
                 <div>
@@ -72,7 +72,7 @@
                     </button>
                     <p>
                         Already have an account?
-                        <a href="{{ route('user.login') }}" class="underline text-blue-500">Sign up</a>
+                        <a href="{{ route('user.login') }}" class="underline text-blue-500">Sign in</a>
                     </p>
                 </div>
             </form>

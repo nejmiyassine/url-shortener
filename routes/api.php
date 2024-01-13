@@ -19,7 +19,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('user/urls/{user_id}', [UrlController::class, 'index']);
-Route::post('url/add', [UrlController::class, 'store']);
-Route::delete('url/delete/{shorten_url}', [UrlController::class, 'destroy']);
-Route::put('url/update/{shorten_url}', [UrlController::class, 'update']);
+Route::get('user/{user_id}/urls', [UrlController::class, 'index']);
+Route::post('urls', [UrlController::class, 'store']);
+Route::delete('urls/{url}', [UrlController::class, 'destroy']);
+Route::put('urls/{url}', [UrlController::class, 'update']);
+
+Route::prefix('api')->group(function () {
+    // Route::get('user/{user_id}/urls', [UrlController::class, 'index'])->name('api.user.urls.index');
+    // Route::post('urls', [UrlController::class, 'store'])->name('api.urls.store');
+    // Route::delete('urls/{url}', [UrlController::class, 'destroy'])->name('api.urls.destroy');
+    // Route::put('urls/{url}', [UrlController::class, 'update'])->name('api.urls.update');
+});
